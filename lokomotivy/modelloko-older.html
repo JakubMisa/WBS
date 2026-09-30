@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MODEL LOKO – prodejna modelové železnice</title>
+<meta name="description" content="Kamenná prodejna modelové železnice MODEL LOKO v Praze 9 Lehovci: obchod, bazar, servis, modely, příslušenství.">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;800&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#17202a;--spruce:#1f2933;--spruce2:#141b22;--accent:#c8372d;--bg:#f2f3f4;--card:#fff;--line:#dcdfe3;--muted:#5b6670;
+--h:'Sora',system-ui,sans-serif;--b:'Manrope',system-ui,sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font:400 16.5px/1.65 var(--b);color:var(--ink);background:var(--bg)}
+a{color:inherit}img{max-width:100%;display:block}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.w{width:min(1120px,100% - 2rem);margin-inline:auto}
+header{background:var(--spruce);color:#fff;position:sticky;top:0;z-index:30}
+.bar{display:flex;align-items:center;gap:1rem;height:68px}
+.brand{display:flex;align-items:center;gap:.7rem;text-decoration:none;font:700 1.15rem var(--h);letter-spacing:.01em}
+.brand img{height:40px;width:auto;background:#fff;border-radius:6px;padding:3px}
+nav{margin-left:auto}nav>ul{list-style:none;margin:0;padding:0;display:flex;gap:.1rem}
+nav li{position:relative}
+nav a{display:block;padding:.5rem .75rem;text-decoration:none;font-weight:600;font-size:.95rem;border-radius:6px}
+nav a:hover,nav a.on{background:rgba(255,255,255,.12)}
+.dd{display:none;position:absolute;right:0;top:100%;background:#fff;color:var(--ink);min-width:220px;padding:.5rem;border-radius:10px;box-shadow:0 16px 40px rgba(20,27,34,.3);border:1px solid var(--line)}
+nav li:hover>.dd,nav li:focus-within>.dd{display:block}
+.dd a:hover{background:var(--bg)}.dd small{display:block;padding:.5rem .75rem 0;color:var(--muted);font-size:.78rem;font-weight:600}
+.bg{display:none;margin-left:auto;background:none;border:1.5px solid #fff;color:#fff;border-radius:6px;padding:.35rem .8rem;font:600 .95rem var(--b)}
+@media(max-width:900px){.bg{display:block}nav{display:none;position:absolute;left:0;right:0;top:68px;background:var(--spruce2);padding:.5rem 1rem 1rem;margin:0;max-height:80vh;overflow:auto}
+nav.open{display:block}nav>ul{flex-direction:column}.dd{display:block;position:static;background:none;color:#fff;border:0;box-shadow:none;padding:0 0 0 1rem}.dd a:hover{background:rgba(255,255,255,.12)}.dd small{color:#a4afbb}}
+
+.hero{background:var(--spruce);color:#fff;position:relative;overflow:hidden}
+.hero .w{position:relative;padding:4.5rem 0 11rem}
+.hero h1{font:700 clamp(2.3rem,5.6vw,4.2rem)/1.05 var(--h);margin:0 0 1rem;max-width:16ch;letter-spacing:-.02em}
+.hero p{max-width:50ch;margin:0 0 1.8rem;font-size:1.15rem;color:#c9d0d8}
+.btn{display:inline-block;background:var(--accent);color:#fff;font-weight:700;text-decoration:none;padding:.75rem 1.4rem;border-radius:8px;transition:transform .15s,background .15s}
+.btn:hover{transform:translateY(-2px);background:#a82c24}
+.btn.o{background:none;border:1.5px solid rgba(255,255,255,.6);margin-left:.5rem}.btn.o:hover{background:rgba(255,255,255,.1)}
+.rails{position:absolute;left:0;right:0;bottom:0;width:100%;height:240px}
+.rails .tr{fill:none;stroke:#4a5b70;stroke-width:3}
+.rails .sl{fill:none;stroke:#4a5b70;stroke-width:14;stroke-dasharray:2 11;opacity:.55}
+.rails circle.m{fill:#fff}
+.rails circle.s{fill:var(--accent);animation:bl 2.4s ease-in-out infinite}
+@keyframes bl{50%{opacity:.25}}
+
+section{padding:3rem 0}
+h1.pt{font:700 clamp(2rem,4vw,2.8rem)/1.1 var(--h);margin:0 0 .6rem;letter-spacing:-.02em}
+h2{font:700 1.5rem var(--h);margin:0 0 1.2rem;letter-spacing:-.01em}
+.lead{color:var(--muted);max-width:60ch;margin:0 0 2rem;font-size:1.1rem}
+.crumb{font-size:.88rem;color:var(--muted);margin-bottom:1rem}.crumb a{text-decoration:none;color:var(--spruce);font-weight:600}.crumb a:hover{text-decoration:underline}
+.pagehead{background:#fff;border-bottom:1px solid var(--line);padding:2.4rem 0 1.4rem}.pagehead .lead{margin:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem}
+.tile{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1.2rem;text-decoration:none;transition:border-color .2s,transform .2s}
+.tile:hover{border-color:var(--accent);transform:translateY(-3px)}
+.tile b{display:block;font:700 1.15rem var(--h)}.tile span{font-size:.9rem;color:var(--muted)}
+.tile.sz b{font-size:2.6rem;color:var(--spruce)}
+.posts{display:grid;gap:1.4rem}
+.post{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1.4rem 1.5rem}
+.post h3{font:700 1.3rem/1.25 var(--h);margin:0 0 .2rem}.post h3 a{text-decoration:none}.post h3 a:hover{color:var(--accent)}
+.date{font-size:.85rem;color:var(--muted);margin:0 0 .8rem}
+.prices{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;padding:0;margin:.7rem 0 1rem}
+.prices li{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:.3rem .8rem;font-weight:600}.prices b{color:var(--accent)}
+.strip{display:flex;gap:.7rem;overflow-x:auto;padding-bottom:.5rem;margin-bottom:.8rem}
+.strip a{flex:none;border-radius:10px;overflow:hidden;border:1px solid var(--line)}.strip img{height:180px;width:auto;transition:transform .35s}.strip a:hover img{transform:scale(1.05)}
+.more{font-weight:700;color:var(--spruce);text-decoration:none}.more:hover{color:var(--accent)}
+.gal{columns:3 250px;column-gap:.9rem;margin-top:1.6rem}
+.gal img{width:100%;margin:0 0 .9rem;break-inside:avoid;border-radius:10px;border:1px solid var(--line);background:#fff;cursor:zoom-in;transition:transform .25s,box-shadow .25s}
+.gal img:hover{transform:scale(1.02);box-shadow:0 10px 26px rgba(20,27,34,.22)}
+.txt{max-width:72ch}.txt p{margin:0 0 1rem}.txt h3{font:700 1.2rem var(--h);margin:1.6rem 0 .5rem}.txt a{color:var(--accent);font-weight:600}.txt li{margin-bottom:.3rem}
+.arts{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.1rem;margin-bottom:1.6rem}
+.art{display:block;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;text-decoration:none;transition:transform .2s,border-color .2s}
+.art:hover{transform:translateY(-3px);border-color:var(--accent)}
+.art img{width:100%;height:190px;object-fit:cover}.art div{padding:1rem 1.2rem}.art b{display:block;font:700 1.1rem/1.3 var(--h)}.art span{color:var(--muted);font-size:.9rem}
+.note{background:#fff;border:1px solid var(--line);border-left:6px solid var(--accent);border-radius:12px;padding:1.2rem 1.4rem;max-width:72ch}.note p{margin:.4rem 0 0}.note a{color:var(--accent);font-weight:600}
+#lb{position:fixed;inset:0;background:rgba(10,14,18,.9);display:flex;align-items:center;justify-content:center;z-index:99;cursor:zoom-out;padding:1rem}#lb[hidden]{display:none}#lb img{max-width:96vw;max-height:92vh;border-radius:8px}
+.cp{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 1px 1px,rgba(255,255,255,.07) 1px,transparent 0) 0 0/28px 28px}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 40%,rgba(255,255,255,.06) 50%,transparent 60%);animation:sw 9s ease-in-out infinite;pointer-events:none}
+@keyframes sw{from{transform:translateX(-70%)}to{transform:translateX(70%)}}
+.rails circle.m{filter:drop-shadow(0 0 7px #fff)}.rails circle.g{fill:var(--accent);filter:drop-shadow(0 0 7px var(--accent))}
+.pager{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1.6rem;align-items:center}
+.pager a,.pager span{padding:.35rem .75rem;border:1px solid var(--line);border-radius:8px;background:#fff;text-decoration:none;font-weight:600;font-size:.92rem}
+.pager .c{background:var(--spruce);color:#fff;border-color:var(--spruce)}.pager a:hover{border-color:var(--accent)}
+.empty{border:2px dashed var(--line);border-radius:14px;padding:2.2rem;text-align:center;color:var(--muted);background:#fff}
+.info{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem}
+.info div{background:#fff;border:1px solid var(--line);border-radius:12px;padding:1.3rem}.info h3{margin:0 0 .4rem;font:700 1.05rem var(--h)}.info p{margin:0}
+.info a{color:var(--spruce);font-weight:600}
+.dom{display:flex;align-items:center;gap:1.4rem;background:#fff;border:1px solid var(--line);border-radius:14px;padding:1.3rem;margin-bottom:1.5rem}.dom img{height:70px;width:auto}
+.sm ul{columns:2;padding-left:1.1rem}.sm a{color:var(--spruce);font-weight:600}
+@media(max-width:600px){.sm ul{columns:1}}
+footer{background:var(--spruce2);color:#c9d0d8;padding:2.6rem 0 1.6rem;margin-top:2rem}
+.fg{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.6rem}
+footer h4{color:#fff;font:700 1rem var(--h);margin:0 0 .5rem}footer a{text-decoration:none}footer a:hover{text-decoration:underline}footer p{margin:0}
+.cp{margin-top:1.6rem;font-size:.82rem;opacity:.6}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rails animateMotion{display:none}}
+</style>
+</head>
+<body>
+<header><div class="w bar">
+  <a class="brand" href="#/" aria-label="MODEL LOKO – domů"><img src="https://modelloko.cz/images/modellokoLogo_small.png" alt="">MODEL LOKO</a>
+  <button class="bg" id="bg" aria-expanded="false" aria-controls="nav">Menu</button>
+  <nav id="nav" aria-label="Hlavní menu"></nav>
+</div></header>
+<main id="app"></main>
+<footer><div class="w">
+  <div class="fg">
+    <div><h4>Modelloko</h4><p>Kardašovská 753<br>Praha 9 Lehovec<br>198 00</p></div>
+    <div><h4>Kontakt</h4><p>Telefon: <a href="tel:+420281862403">281 862 403</a><br>Email: <a href="mailto:psevcik@modelloko.cz">psevcik@modelloko.cz</a></p></div>
+    <div><h4>Prodejna</h4><p><a href="#/kontakt">Kontakt</a><br><a href="#/kde-nas-najdete">Kde nás najdete</a><br><a href="#/mapa-stranek">Mapa stránek</a></p></div>
+  </div>
+  <p class="cp"><span>MODEL LOKO – kamenná prodejna modelové železnice</span><span>Design &amp; Development by Jakub Míša</span></p>
+</div></footer>
+
+<script>
+/* slug, název, rodič, popis, skupina v menu */
+const P=[
+['nabidka','Nabídka','','Přehled sortimentu prodejny model LOKO.'],
+['novy-sortiment','Nový sortiment','nabidka','Nově naskladněné zboží.',''],
+['akce','Akce','nabidka','Aktuální akční nabídka.',''],
+['o','O','nabidka','Nabídka modelů velikosti O.','Modelové velikosti'],
+['ho','HO','nabidka','Nabídka modelů velikosti HO.','Modelové velikosti'],
+['tt','TT','nabidka','Nabídka modelů velikosti TT.','Modelové velikosti'],
+['n','N','nabidka','Nabídka modelů velikosti N.','Modelové velikosti'],
+['z','Z','nabidka','Nabídka modelů velikosti Z.','Modelové velikosti'],
+['doplnky','Doplňky','nabidka','Doplňky pro modelovou železnici.','Ostatní sortiment'],
+['lampy-dominik','Lampy Dominik','nabidka','ModelLOKO je výhradní prodejce lamp Dominik.','Ostatní sortiment'],
+['ostatni','Ostatní','nabidka','Další sortiment prodejny.','Ostatní sortiment'],
+['automobily','Automobily','nabidka','Modely automobilů.','Ostatní sortiment'],
+['literatura','Literatura','nabidka','Odborná literatura o železnici.','Ostatní sortiment'],
+['unikaty','Unikáty','nabidka','Jedinečné a sběratelské kousky.','Ostatní sortiment'],
+['muzeum','Muzeum','nabidka','Sbírka modelů a zajímavostí z prodejny.','Ostatní sortiment'],
+['kolejiste','Vaše kolejiště','','Kolejiště na míru a poradenství.'],
+['kolejiste-n-jirny','Kolejiště N Jirny','kolejiste','Kolejiště velikosti N v Jirnech.'],
+['kolejiste-z-prodejna','Kolejiště Z prodejna','kolejiste','Kolejiště velikosti Z přímo v prodejně.'],
+['kolejiste-prodej','Kolejiště na prodej','kolejiste','Hotová kolejiště k odkoupení.'],
+['modelova-zeleznice','Modelová železnice','','Vše o světě modelové železnice.'],
+['zeleznice-reportaze','Reportáže','','Reportáže ze železničního světa.'],
+['novinky','Novinky','','Aktuality a novinky z prodejny.'],
+['odkazy','Odkazy','','Užitečné odkazy pro modeláře.'],
+['obchod','Obchod','','Aktuální nabídka a novinky prodejny.'],
+['kontakt','Kontakt','','Jak nás zastihnete.'],
+['kde-nas-najdete','Kde nás najdete','','Kamenná prodejna v Praze 9 Lehovci.'],
+['galerie','Galerie prodejny','','Fotografie z prodejny.'],
+['faq','FAQ','','Nejčastější dotazy zákazníků.'],
+['mapa-stranek','Mapa stránek','','Přehled všech stránek webu.'],
+['mz-beckmann','Beckmann ↠ Fischer-modell.de','modelova-zeleznice',''],
+['mz-ragulin','Ragulin v N - přestavba a porovnání s TT a H0','modelova-zeleznice',''],
+['mz-sergej2','Porovnání Sergejů N Trix a Fleischmann II','modelova-zeleznice',''],
+['mz-sergej1','Porovnání Sergejů N Trix a Fleischmann','modelova-zeleznice','']
+];
+const pic=(pre,n,ext='jpg')=>Array.from({length:n},(_,i)=>`https://modelloko.cz/images/${pre(i+1)}.${ext}`);
+const POSTS=[
+{id:'p477',t:'Sobota 19.9.2026 otevřeno: 10:30 - 13:00 hod.',d:'27. srpen 2026',img:[]},
+{id:'p476',t:'Novinka - Fleischmann N - Patra ČD a ČSD',d:'27. srpen 2026',img:pic(i=>'f'+i,3)},
+{id:'p473',t:'Nabídka setů - Roco',d:'27. červenec 2026',text:'Nabídka - setů Roco',price:['74064 – 8 450 Kč','74139 – 5 150 Kč'],img:pic(i=>i+'x'+i,5)},
+{id:'p470',t:'Lokomotivy Rocco',d:'19. červen 2026',text:'Lokomotivy Rocco - nové, vyzkoušené!<br>Dostupné na prodejně, po domluvě možné poslat zásilkovnou.',img:pic(i=>'rocco_'+i,10)}
+];
+
+const U='https://www.modelloko.cz/images/joomgallery/thumbnails/';
+const gi=(d,p,a)=>a.map(n=>U+d+'/'+p+n+(String(n).includes('.')?'':'.jpg'));
+const R='reportaze_-_recenze_-_model_37/';
+const GL={
+o:{x:'<p>Představujeme dva úžasné modely v měřítku 0 – lehátkový vůz ČSD Bac a lůžkový vůz ČSD WLAB. Oba vznikly jako prezentační modely pro výrobce vagónků VEB Waggonbau Görlitz.</p>',
+ i:gi('nabidka_2/modelova_velikost_0_35','waggonbau_goerlitz_20130209_',[1951898246,2046150613,1724469627,1508434699,1424948957,1001311458,1909638195,2074919620,1537982132,1064891456,1927768073,2079043214,1478198227,1344422436,1941123657])},
+ho:{x:'<p>Novinka: nové výsypné vozy Sas v HO od ČStrain.</p>',
+ i:gi('nabidka_2/modelova_velikost_h0_34','aktuln_nabdka_ho_20120204_',[1137640050])
+  .concat(gi('nabidka_2/modelova_velikost_h0_34','lampa_dominik_h0_20120204_',[1619009608]),gi('nabidka_2/modelova_velikost_h0_34','aktuln_nabdka_ho_20120204_',[1257897520,1631950809,1290482794,1701754283]))},
+tt:{h:'Modelová velikost TT stále vzkvétá!',x:'<p>Navzdory různým pochybám nás firma <b>Tillig</b> stále zásobuje svými výrobky včetně novinek a limitovaných edic.</p><p>Máme pro Vás připraven také široký sortiment výrobků našich firem a malovýrobců, kteří pokračují v tradici této u nás stále nejpopulárnější modelové velikosti.</p>',
+ i:gi('nabidka_2/modelova_velikost_tt_3','',['uni_tt_20091011_1941742324','tt_vitrina1_1732_20091011_1361302171','tt_9442_20091011_1736088817','tt_411_20091011_2076282771','tt_410_20091011_1330657343','vyber_1790_20091011_1902510728','tt_uvod_1787orig_20091011_1004387730','tt_177_20091011_1232089025','pan_tillig_1760_20091011_2000240700','tt_titul_1758_20091011_2011724951','tt6_20091011_2069742846','tt5_20091011_1221971421','tt4_20091011_1841042420','tt3_20091011_1498777127','tt_vitrina2_1734_20091011_1497902156'])},
+n:{i:gi('nabidka_2/modelova_velikost_n_9','',['nnaft_20091011_2011037276','nohab_20091011_2045803550','n1_20091011_1860764942','n679_20091011_1662711328','n_9431_20091011_1274923535','n_9444_20091011_1111474555'])},
+z:{x:'<p>V roce 1972 firma Märklin představila nejmenší modelovou velikost Z. Za tu dobu měřítko 1:220 ukázalo, že se dokáže prosadit a také udržet na trhu modelové železnice.</p>',
+ i:gi('nabidka_2/modelova_velikost_z_10','',['newbrief_20091011_1827736177','zscr_6347_20091011_2002867510','zuvodv_6363_20091011_1286398516','z8820_20091011_1182961040','z81417_20091011_1853152822','z82367_20091011_1603662046','z82509_20091011_1828902265','z86552_20091011_1167935086','z86621_20091011_1206481658','zc9_20091011_1949088713','zc8_20091011_1820958043','zc7_20091011_2000525975','z_20091011_1663036917','zc1_20091011_1338291710','zc2_20091011_1578683779','zc3_20091011_1150958840','zc4_20091011_1473421856','zc5_20091011_1414250882','marklincat_06_20091011_1247519396','zc6_20091011_1598183025','z88836_20091011_1347267646'])},
+'mz-beckmann':{th:2,h:'Beckmann předává štafetu!',x:'<p>Firma <a href="http://www.beckmanntt.de/" target="_blank" rel="noopener">Beckmann</a>, známá výrobou precizních modelů ve velikosti TT, předala výrobu svých modelů mladé a dynamické firmě <a href="http://fischer-modell.de" target="_blank" rel="noopener">Fischer-modell</a>.</p><p>Konečně se k nám dostal model parní lokomotivy BR41 DR, který vyniká výborným zpracováním a množstvím detailů.</p>',
+ i:gi(R+'beckmann__fischer-modellde_44','beckmann__fischer-modellde_20151004_',['1511744022.jpeg',1592315414,1008457399,1554725573,1663622983,1580275014])},
+'mz-ragulin':{th:2,x:'<p><i>Autor: Petr Ševčík</i></p><h3>Porovnání stejných modelů T679.2 ČSD v měřítkách H0, TT, N</h3><p>U největšího a nejmenšího měřítka jde skoro o dvojnásobnou velikost. Každé má něco do sebe, posuďte.</p><h3>Přestavba lokomotivy T679.2 ČSD v měřítku N</h3><p>Přestavba se nabízí, pokud jste si pořídili magazín Lokomotivy světa 47/2012 s přílohou – nepojízdným výliskem Ragulina. Stačí najít vhodný pojezd; tady posloužil starý model Nohabky od PIKO. Dalo to práci, ale výsledek stojí za to a vedle větších bratříčků se neztratí.</p>',
+ i:gi(R+'ragulin_v_n_-_pestavba_a_porovnani_s_tt_a_h0_46','ragulin_v_n_-_pestavba_20151004_',[1218775114,1867474010,2000550113,1115336379,1576449357,1965964807])},
+'mz-sergej2':{th:1,x:'<p><i>Autor: F. Krása</i></p><h3>Digitalizace</h3><p>Lokomotiva dostala dekodér Zimo MX621N. Vážení: Trix 102 g, Fleischmann 73 g. První dekodér při nastavování CV selhal, po výměně za stejný typ už vše fungovalo.</p><h3>Testy na kolejišti</h3><p>Na domácím kolejišti modeláře Honzy Merhauta jsme sestavili soupravu ze 4 vozů Y Arnold, 3 vozů Alex Arnold a 7 vozů Railjet Hobbytrain. Nejnáročnější byly oblouky R2 (240 mm) a R3 za stoupáním. Testovali jsme pět lokomotiv:</p><ul><li>Sergej Trix, kat. č. 12358 – 102 g</li><li>Sergej Fleischmann, kat. č. 725202 – 73 g</li><li>Taurus Fleischmann, kat. č. 731214 – 80 g</li><li>Herkules Fleischmann, kat. č. 726012 – 79 g</li><li>Bastard Kühn, kat. č. 95012 – 64 g</li></ul><h3>Výsledky</h3><ol><li>Taurus a Herkules projeli celou trať se soupravou bez problémů.</li><li>Sergej Trix projel vše, na exponovaných místech zpomalil, ale neprokluzoval; jezdí celkově pomalu.</li><li>Sergej Fleischmann a Bastard citelně prokluzovali kvůli nízké hmotnosti.</li></ol><h3>Závěr</h3><p>Pod motor Sergeje Fleischmanna by šla doplnit zátěž. Dekodér leží přímo nad velkým motorem, proto stojí za úvahu originální dekodér s kablíkem, hlavně kvůli přehřívání. Poškození prvního dekodéru s přehřátím nesouviselo.</p><p>Děkujeme Honzovi Merhautovi za nastavení vlastností a testovací jízdy.</p>',
+ i:gi(R+'porovnani_sergej_n_trix_a_fleischmann_ii_39','porovnn_sergej_n_ii_20141217_',[1725550331,1194455617,1238556607,1165772582])},
+'mz-sergej1':{th:6,x:'<p><i>Autor: F. Krása</i></p><p>Konečně jsem se dostal ke druhému Sergejovi, od Fleischmannu (kat. č. 725202). Pro porovnání posloužil Sergej od Trixu (kat. č. 12358 DR), mírně upravený do podoby ČSD T679.1329.</p><h3>Popis</h3><p>V krabičce jsou náhradní spřáhla Profi, návod na mazání a digitalizaci a list náhradních dílů. Model je lehčí než Trix a na první pohled menší, po přeměření ale rozměry souhlasí – naopak Trix je větší než přepočet. Detaily jsou ostřejší a lépe propracované, některé na čelech lokomotivy trochu přemrštěné (jsou ale odnímatelné). Houkačky na střeše jsou jen dvě a na chybném místě, žaluzie na boku jsou konečně správně horizontálně. Hnané jsou čtyři nápravy, proud sbírají všechny; převody jsou částečně z plastu. Interiér kabiny je detailní a říká si o vybarvení.</p><h3>Zhodnocení</h3><p>Špičkový model, u něhož lze několik drobných nedostatků pominout. Jízdní zkoušky přijdou po digitalizaci.</p>',
+ i:gi(R+'porovnani_sergej_n_trix_a_fleischmann_38','porovnn_sergej_n_20141214_',[1171481802,1119861410,1680714797,1090969892,1829299449,1748499284,1924750787,1578804103,1682845363])}
+};
+const gal=a=>`<div class="gal">${a.map(s=>`<img loading="lazy" src="${s}" alt="">`).join('')}</div>`;
+const AK=['mz-beckmann','mz-ragulin','mz-sergej2','mz-sergej1'];
+const arts=()=>`<div class="arts">${AK.map(k=>`<a class="art" href="#/${k}"><img src="${GL[k].i[GL[k].th]}" alt=""><div><b>${by[k][1]}</b><span>(${GL[k].i.length} obrázků)</span></div></a>`).join('')}</div>
+<div class="note"><b>Reportáže – recenze – modelů</b><p>Recenze železničních modelů a reportáže ze světa modelové železnice. Máte k dispozici nový model, který byste chtěli okomentovat nebo recenzovat? Pošlete nám foto s popisem, rádi jej uveřejníme.</p><p>Kontakt: <a href="mailto:reportaze@modelloko.cz">reportaze@modelloko.cz</a></p></div>`;
+const $=s=>document.querySelector(s),app=$('#app');
+const by=Object.fromEntries(P.map(p=>[p[0],p]));
+const href=s=>'#/'+s;
+
+/* menu */
+const link=s=>`<a href="${href(s)}" data-s="${s}">${by[s][1]}</a>`;
+function menu(){
+  const nb=P.filter(p=>p[2]==='nabidka');let g='',nbh='';
+  nb.forEach(p=>{if(p[4]!==g){g=p[4];if(g)nbh+=`<small>${g}</small>`}nbh+=link(p[0])});
+  const dd=(label,slug,inner)=>`<li><a href="${href(slug)}" data-s="${slug}">${label}</a><div class="dd">${inner}</div></li>`;
+  $('#nav').innerHTML='<ul>'+
+    dd('Nabídka','nabidka',nbh)+
+    dd('Kolejiště','kolejiste',['kolejiste','kolejiste-n-jirny','kolejiste-z-prodejna','kolejiste-prodej'].map(link).join(''))+
+    `<li>${link('modelova-zeleznice')}</li><li>${link('zeleznice-reportaze')}</li><li>${link('novinky')}</li><li>${link('odkazy')}</li>`+
+    dd('Prodejna','kontakt',['kontakt','kde-nas-najdete','galerie','faq','obchod','mapa-stranek'].map(link).join(''))+'</ul>';
+}
+/* kousky stránek */
+const postCard=p=>`<article class="post"><h3><a href="#/${p.id}">${p.t}</a></h3><p class="date">Vytvořeno: ${p.d}</p>
+${p.text?`<p style="margin:0 0 .4rem">${p.text}</p>`:''}
+${p.price?`<ul class="prices">${p.price.map(x=>`<li>${x.replace(/(\d[\d ]* Kč)/,'<b>$1</b>')}</li>`).join('')}</ul>`:''}
+${p.img.length?`<div class="strip">${p.img.map((s,i)=>`<a href="#/${p.id}"><img loading="lazy" src="${s}" alt="${p.t}, foto ${i+1}"></a>`).join('')}</div>`:''}
+<a class="more" href="#/${p.id}">Podrobnosti</a></article>`;
+const head=(title,lead,crumbs)=>`<div class="pagehead"><div class="w"><div class="crumb"><a href="#/">Domů</a>${crumbs||''} / ${title}</div><h1 class="pt">${title}</h1><p class="lead">${lead||''}</p></div></div>`;
+const empty='<div class="empty">Obsah této sekce se připravuje.</div>';
+
+function home(){
+  const sizes=['o','ho','tt','n','z'].map(s=>`<a class="tile sz" href="${href(s)}"><b>${by[s][1]}</b><span>Modelová velikost ${by[s][1]}</span></a>`).join('');
+  return `<div class="hero"><div class="w"><h1>Vše pro modelovou železnici</h1>
+  <p>Kamenná prodejna v Praze 9 Lehovci: obchod, bazar, servis, modely a příslušenství.</p>
+  <a class="btn" href="#/nabidka">Prohlédnout nabídku</a><a class="btn o" href="#/kde-nas-najdete">Kde nás najdete</a></div>
+  <svg class="rails" viewBox="0 0 1200 240" preserveAspectRatio="none" aria-hidden="true">
+   <defs><path id="a" d="M0 130H1200"/><path id="b" d="M0 130H380C480 130 500 66 600 66H1200"/><path id="c" d="M0 130H380C480 130 500 194 600 194H1200"/></defs>
+   <g><use href="#a" class="sl"/><use href="#a" class="tr"/><use href="#b" class="sl"/><use href="#b" class="tr"/><use href="#c" class="sl"/><use href="#c" class="tr"/></g>
+   <circle class="m" r="5"><animateMotion dur="9s" repeatCount="indefinite"><mpath href="#a"/></animateMotion></circle>
+   <circle class="m" r="5"><animateMotion dur="12s" begin="-4s" repeatCount="indefinite"><mpath href="#b"/></animateMotion></circle>
+   <circle class="m" r="5"><animateMotion dur="14s" begin="-9s" repeatCount="indefinite"><mpath href="#c"/></animateMotion></circle>
+   <circle class="g" r="4"><animateMotion dur="11s" begin="-2s" repeatCount="indefinite"><mpath href="#a"/></animateMotion></circle>
+   <circle class="g" r="4"><animateMotion dur="15s" begin="-7s" repeatCount="indefinite"><mpath href="#b"/></animateMotion></circle>
+   <circle class="g" r="4"><animateMotion dur="10s" begin="-5s" repeatCount="indefinite"><mpath href="#c"/></animateMotion></circle>
+   <circle class="s" cx="1150" cy="66" r="6"/><circle class="s" cx="1150" cy="130" r="6" style="animation-delay:.8s"/><circle class="s" cx="1150" cy="194" r="6" style="animation-delay:1.6s"/>
+  </svg></div>
+  <section style="padding-bottom:0"><div class="w"><h2>Vítáme Vás v kamenné prodejně</h2><div class="txt">
+  <p>Specializujeme se na sortiment modelové železnice, ale najdete u nás i modely automobilů. Od internetových obchodů se lišíme šíří a objemem zboží, které máme přímo na prodejně.</p>
+  <p>Kromě modelů známých světových výrobců nabízíme malosériové a ručně vyráběné modely od našich modelářů – často je to jediný způsob, jak získat model české lokomotivy, vozu, auta nebo doplňku. Jsme výhradním prodejcem lamp českého výrobce Dominik a nechybí literatura, knížky a časopisy o modelářství i velké železnici.</p></div></div></section>
+  <section><div class="w"><h2>Modelové velikosti</h2><div class="grid">${sizes}</div></div></section>
+  <section style="padding-top:0"><div class="w"><h2>Novinky z prodejny</h2><div class="posts">${POSTS.map(postCard).join('')}</div>
+  <div class="pager"><span class="c">1</span>${[2,3,4,5,6,7,8,9,10].map(n=>`<a href="#/novinky">${n}</a>`).join('')}<a href="#/novinky">Následující</a><a href="#/novinky">Konec</a><span style="border:0;background:none;color:var(--muted)">Strana 1 z 15</span></div></div></section>`;
+}
+function post(p){
+  return head(p.t,'Vytvořeno: '+p.d,' / <a href="#/novinky">Novinky</a>')+`<section><div class="w">${p.text?`<p>${p.text}</p>`:''}
+  ${p.price?`<ul class="prices">${p.price.map(x=>`<li>${x.replace(/(\d[\d ]* Kč)/,'<b>$1</b>')}</li>`).join('')}</ul>`:''}
+  ${p.img.length?`<div class="gal">${p.img.map((s,i)=>`<img loading="lazy" src="${s}" alt="${p.t}, foto ${i+1}">`).join('')}</div>`:''}
+  <p style="margin-top:2rem"><a class="more" href="#/novinky">← Zpět na novinky</a></p></div></section>`;
+}
+function generic(s){
+  const p=by[s],kids=P.filter(x=>x[2]===s),par=p[2]?` / <a href="${href(p[2])}">${by[p[2]][1]}</a>`:'';
+  const title=p[4]==='Modelové velikosti'?'Modelová velikost '+p[1]:p[1];
+  let body=kids.length?`<div class="grid">${kids.map(k=>`<a class="tile" href="${href(k[0])}"><b>${k[1]}</b><span>${k[3]}</span></a>`).join('')}</div>`:empty;
+  if(s==='lampy-dominik')body=`<div class="dom"><img src="https://modelloko.cz/images/loga/dominik_logo.png" alt="lampy Dominik"><p style="margin:0"><b>ModelLOKO je výhradní prodejce lamp Dominik.</b></p></div>`+empty;
+  if(s==='novinky'||s==='obchod')body=`<div class="posts">${POSTS.map(postCard).join('')}</div>`;
+  if(s==='kontakt')body=`<div class="info"><div><h3>Adresa</h3><p>Modelloko<br>Kardašovská 753<br>Praha 9 Lehovec<br>198 00</p></div><div><h3>Telefon</h3><p><a href="tel:+420281862403">281 862 403</a></p></div><div><h3>Email</h3><p><a href="mailto:psevcik@modelloko.cz">psevcik@modelloko.cz</a></p></div></div>`;
+  if(s==='kde-nas-najdete')body=`<div class="info"><div><h3>Adresa prodejny</h3><p>Kardašovská 753<br>Praha 9 Lehovec, 198 00</p></div><div><h3>Mapa</h3><p><a href="https://mapy.cz/zakladni?q=Karda%C5%A1ovsk%C3%A1%20753%2C%20Praha" target="_blank" rel="noopener">Otevřít v Mapy.cz</a></p></div><div><h3>Telefon</h3><p><a href="tel:+420281862403">281 862 403</a></p></div></div>`;
+  if(s==='mapa-stranek')body=`<div class="sm"><ul><li><a href="#/">Domů</a></li>${P.map(x=>`<li><a href="${href(x[0])}">${x[1]}</a></li>`).join('')}${POSTS.map(x=>`<li><a href="#/${x.id}">${x.t}</a></li>`).join('')}</ul></div>`;
+  if(GL[s]){const g=GL[s];body=(g.h?`<h2>${g.h}</h2>`:'')+(g.x?`<div class="txt">${g.x}</div>`:'')+gal(g.i)}
+  if(s==='modelova-zeleznice'||s==='zeleznice-reportaze')body=arts();
+  return head(title,GL[s]?'':p[3],par)+`<section><div class="w">${body}</div></section>`;
+}
+function render(){
+  const s=(location.hash.replace(/^#\/?/,'')||'');let html,t='MODEL LOKO – prodejna modelové železnice';
+  const po=POSTS.find(x=>x.id===s);
+  if(!s)html=home();else if(po){html=post(po);t=po.t+' | MODEL LOKO'}else if(by[s]){html=generic(s);t=by[s][1]+' | MODEL LOKO'}
+  else html=head('Stránka nenalezena','Tuto stránku jsme nenašli.')+'<section><div class="w"><a class="btn" href="#/">Zpět na úvod</a></div></section>';
+  app.innerHTML=html;document.title=t;window.scrollTo(0,0);
+  document.querySelectorAll('nav a').forEach(a=>a.classList.toggle('on',a.dataset.s===s));
+  $('#nav').classList.remove('open');$('#bg').setAttribute('aria-expanded','false');
+}
+const lb=document.createElement('div');lb.id='lb';lb.hidden=true;document.body.appendChild(lb);
+lb.onclick=()=>lb.hidden=true;addEventListener('keydown',e=>{if(e.key==='Escape')lb.hidden=true});
+app.addEventListener('click',e=>{if(e.target.matches('.gal img')){lb.innerHTML='<img src="'+e.target.src+'" alt="">';lb.hidden=false}});
+menu();render();addEventListener('hashchange',render);
+$('#bg').onclick=()=>{const o=$('#nav').classList.toggle('open');$('#bg').setAttribute('aria-expanded',o)};
+</script>
+</body>
+</html>
