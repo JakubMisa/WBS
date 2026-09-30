@@ -108,7 +108,6 @@ footer{padding-bottom:6rem}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}
 .tread,.panel{animation:none}
 #toast{transition:none}}
-/* ═════ HLAVIČKA ═════ */
 :root{--hh:4.25rem}
 html{scroll-padding-top:calc(var(--hh) + 1rem + env(safe-area-inset-top,0px))}
 body.lock{overflow:hidden}
@@ -156,7 +155,6 @@ body.on-page .sub{display:block}
 .mainnav>a::after,.mmb::after{display:none}
 .mmb{pointer-events:none;padding:1.4rem .5rem .5rem;font:800 .78rem var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 .mmb svg{display:none}}
-/* ═════ STRÁNKY SLUŽEB: jednotný textový styl ═════ */
 #pages{padding:3.5rem 0 5rem;min-height:70vh}
 .crumb{display:inline-block;margin-bottom:1.75rem;font-size:.9rem;font-weight:600;color:var(--muted);text-decoration:none;transition:color .2s,transform .2s}
 .crumb:hover{color:var(--signal);transform:translateX(-3px)}
@@ -184,8 +182,6 @@ body.on-page .sub{display:block}
 .foot p{margin:.2rem 0}
 .foot .credit{margin-left:auto;text-align:right}
 @media(max-width:600px){.foot .credit{margin-left:0;text-align:left}}
-
-/* ═════ KARTY SLUŽEB (úvodní stránka) ═════ */
 .svc{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-flow:dense;gap:.9rem;margin-bottom:3.5rem}
 .c{position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;gap:.35rem;min-height:11.5rem;padding:1.3rem;text-decoration:none;background:var(--panel);border:1px solid var(--line);border-radius:1.1rem;transition:transform .35s cubic-bezier(.2,.7,.2,1),border-color .25s,box-shadow .35s}
 .c::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(circle at 100% 0,color-mix(in srgb,var(--signal) 24%,transparent),transparent 58%);opacity:0;transition:opacity .35s}
@@ -217,8 +213,6 @@ body.on-page .sub{display:block}
 .c.acc .wm{color:#000;opacity:.1}
 @media(max-width:1000px){.svc{grid-template-columns:repeat(2,1fr)}.c.feat{grid-row:span 1;min-height:17rem}}
 @media(max-width:560px){.svc{grid-template-columns:1fr}.c.feat,.c.wide{grid-column:auto}.c,.c.feat{min-height:9.5rem}.c.feat .wm{width:12rem;height:12rem}}
-
-/* ═════ MEGA MENU ═════ */
 .mega{position:absolute;left:0;right:0;top:100%;background:var(--bg);border-bottom:1px solid var(--line);box-shadow:0 34px 60px -24px rgba(0,0,0,.65);opacity:0;visibility:hidden;transform:translateY(-10px);transition:opacity .25s,transform .3s cubic-bezier(.2,.7,.2,1),visibility .25s}
 .mega.open{opacity:1;visibility:visible;transform:none}
 .mg{display:grid;grid-template-columns:1fr 19rem;gap:2.2rem;padding-top:1.8rem;padding-bottom:2rem}
@@ -257,7 +251,6 @@ body.on-page .sub{display:block}
 }
 @media(max-width:480px){.mg-list{grid-template-columns:1fr}}
 
-/* pojistka: stránka se nikdy nesmí posouvat do stran */
 html,body{overflow-x:clip;max-width:100%}
 body.lock .bar{transform:translateY(130%);pointer-events:none}
 </style>
@@ -386,7 +379,6 @@ body.lock .bar{transform:translateY(130%);pointer-events:none}
   }
   try{upd();setInterval(upd,60000)}catch(x){}
 
-  // Dekodér rozměru pneu
   var sz=$("sz"),er=$("er");
   function fmt(n,d){return n.toLocaleString("cs-CZ",{maximumFractionDigits:d||0})}
   function calc(){
@@ -404,9 +396,8 @@ body.lock .bar{transform:translateY(130%);pointer-events:none}
     var rz=$("rz");if(rz&&!rz.dataset.t)rz.value=m[1]+"/"+m[2]+" R"+m[3];
   }
   try{sz.addEventListener("input",calc);calc();$("rz").addEventListener("input",function(){this.dataset.t=1})}catch(x){}
-
-  // Formulář
   var f=$("f"),g=$("msg");
+  
   f.addEventListener("submit",function(e){
     e.preventDefault();
     var v=function(k){return f.elements[k].value.trim()};
@@ -415,7 +406,6 @@ body.lock .bar{transform:translateY(130%);pointer-events:none}
     g.className="msg";g.textContent="Otevírám váš e-mail. Nic se neotevřelo? ";var cb=document.createElement("a");cb.href="#";cb.textContent="Zkopírovat zprávu";cb.onclick=function(ev){ev.preventDefault();cp(b,"Zpráva zkopírována. Vložte ji do e-mailu na info@pneugpo.cz")};g.appendChild(cb);
     location.href="mailto:info@pneugpo.cz?subject="+encodeURIComponent("Poptávka: "+v("sluzba"))+"&body="+encodeURIComponent(b);
   });
-  // Hlavička: mega menu, burger, stín při scrollu
   try{
     var hd=$("hd"),mb=$("mmb"),mg=$("mega"),bg=$("burger"),mw=hd.querySelector(".mm"),ht2;
     var curId="pneumatiky",pv=$("mgp"),first=1;
@@ -449,7 +439,6 @@ body.lock .bar{transform:translateY(130%);pointer-events:none}
     var st=function(){hd.classList.toggle("scrolled",(window.scrollY||0)>24)};
     addEventListener("scroll",st,{passive:true});st();
   }catch(x){}
-  // Stránky služeb (každá oblast = vlastní stránka, přepínání přes #sluzba-…)
   try{
     var ml=document.querySelectorAll("#subin a[data-p]"),pl=document.querySelectorAll(".panel"),hm=$("home"),pgs=$("pages"),ind=$("ind"),sub=$("subin"),ids=[],lb={};
     for(var q=0;q<ml.length;q++){var d0=ml[q].getAttribute("data-p");ids.push(d0);lb[d0]=ml[q].textContent}
@@ -484,7 +473,6 @@ body.lock .bar{transform:translateY(130%);pointer-events:none}
     });
     addEventListener("hashchange",function(){route(false)});addEventListener("resize",moveInd);addEventListener("load",moveInd);route(true);
   }catch(x){}
-  // Volání a kopírování
   var tt=$("toast"),tto;
   function toast(t){tt.textContent=t;tt.className="on";clearTimeout(tto);tto=setTimeout(function(){tt.className=""},3200)}
   function cp(t,ok){
@@ -500,7 +488,6 @@ body.lock .bar{transform:translateY(130%);pointer-events:none}
       });
     }
   }catch(x){}
-  // Scroll efekty
   try{
   var root=document.documentElement,rm=matchMedia("(prefers-reduced-motion:reduce)").matches;
   var bgw=$("bgw"),pg=$("pg"),ht=$("ht"),tk=false;
