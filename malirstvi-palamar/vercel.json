@@ -1,5 +1,6 @@
 {
   "redirects": [
-    { "source": "/malirstvi-palamar", "destination": "/", "permanent": true }
+    { "source": "/malirstvi-palamar", "destination": "/", "permanent": true },
+    { "source": "/ligna", "destination": "https://ligna-iota.vercel.app", "permanent": true }
   ]
 }
