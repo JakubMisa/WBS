@@ -1,6 +1,12 @@
 {
   "redirects": [
     { "source": "/malirstvi-palamar", "destination": "/", "permanent": true },
-    { "source": "/ligna", "destination": "https://ligna-iota.vercel.app", "permanent": true }
+    { "source": "/ligna", "destination": "https://ligna-iota.vercel.app", "permanent": true },
+    { "source": "/beneboxinggym", "destination": "/BeneBoxingGym/", "permanent": true },
+    { "source": "/beauty-salon", "destination": "/beauty-salon/", "permanent": true },
+    { "source": "/fitness", "destination": "/fitness/", "permanent": true },
+    { "source": "/pneuservis", "destination": "/pneuservis/", "permanent": true },
+    { "source": "/stolarstvi", "destination": "/stolarstvi/", "permanent": true },
+    { "source": "/truhlarstvi", "destination": "/truhlarstvi/", "permanent": true }
   ]
 }
