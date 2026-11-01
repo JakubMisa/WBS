@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    { "source": "/", "destination": "https://w-b-s.vercel.app/", "permanent": false },
+    { "source": "/malirstvi-palamar", "destination": "https://w-b-s.vercel.app/", "permanent": false },
+    { "source": "/ligna", "destination": "https://ligna-iota.vercel.app", "permanent": false },
+    { "source": "/fitness", "destination": "https://w-b-s.vercel.app/fitness/", "permanent": false },
+    { "source": "/beneboxinggym", "destination": "https://w-b-s.vercel.app/BeneBoxingGym/", "permanent": false },
+    { "source": "/beauty-salon", "destination": "https://w-b-s.vercel.app/beauty-salon/", "permanent": false },
+    { "source": "/pneuservis", "destination": "https://w-b-s.vercel.app/pneuservis/", "permanent": false },
+    { "source": "/stolarstvi", "destination": "https://w-b-s.vercel.app/stolarstvi/", "permanent": false },
+    { "source": "/fotbalpark", "destination": "https://w-b-s.vercel.app/fotbalpark/", "permanent": false },
+    { "source": "/lokomotivy", "destination": "https://w-b-s.vercel.app/lokomotivy/", "permanent": false },
+    { "source": "/vranjica", "destination": "https://w-b-s.vercel.app/vranjica/", "permanent": false }
+  ]
+}
