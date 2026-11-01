@@ -4,7 +4,7 @@
     { "source": "/ligna", "destination": "https://ligna-wbs.vercel.app", "permanent": true },
     { "source": "/beneboxinggym", "destination": "/BeneBoxingGym/", "permanent": true },
     { "source": "/beauty-salon", "destination": "https://beauty-salon-wbs.vercel.app", "permanent": false },
-    { "source": "/fitness", "destination": "/fitness/", "permanent": true },
+    { "source": "/fitness", "destination": "https://fitness-wbs.vercel.app", "permanent": true },
     { "source": "/pneuservis", "destination": "https://pneuservis-wbs.vercel.app/", "permanent": false },
     { "source": "/fotbalpark", "destination": "https://fotbalpark-wbs.vercel.app", "permanent": true },
     { "source": "/truhlarstvi", "destination": "/truhlarstvi/", "permanent": true }
