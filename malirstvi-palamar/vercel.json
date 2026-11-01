@@ -6,7 +6,7 @@
     { "source": "/beauty-salon", "destination": "https://beauty-salon-wbs.vercel.app", "permanent": false },
     { "source": "/fitness", "destination": "/fitness/", "permanent": true },
     { "source": "/pneuservis", "destination": "https://pneuservis-wbs.vercel.app/", "permanent": false },
-    { "source": "/stolarstvi", "destination": "/stolarstvi/", "permanent": true },
+    { "source": "/fotbalpark", "destination": "https://fotbalpark-wbs.vercel.app", "permanent": true },
     { "source": "/truhlarstvi", "destination": "/truhlarstvi/", "permanent": true }
   ]
 }
