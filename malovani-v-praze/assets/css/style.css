@@ -835,3 +835,6 @@ footer .fc a{display:block}
 @media(max-width:600px){
   .gp-nav a{flex:1 1 calc(50% - 10px)}
 }
+
+/* úvod: druhá věta na novém řádku jen na větších obrazovkách */
+@media(max-width:700px){.dbr{display:none}}
