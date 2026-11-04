@@ -826,7 +826,7 @@ footer .fc a{display:block}
 .gp-cta{display:none}
 .gp-nav{gap:8px}
 .gp-nav a{padding:10px 16px;font-size:.9rem}
-.gp-nav{gap:10px;flex-wrap:nowrap;justify-content:stretch}
+.gp-nav{gap:10px;flex-wrap:wrap;justify-content:stretch}
 .gp-nav a{flex:1 1 auto;text-align:center;padding:10px 12px;font-size:.9rem;white-space:nowrap}
 @media(max-width:1100px){
   .gp-nav{flex-wrap:wrap}
@@ -1008,3 +1008,59 @@ body[data-page=sluzby] .chipfan,body[data-page=vzornik] .chipfan{top:24px}
  .burger{margin-left:10px}
  .hb .lng{opacity:1;padding:0 14px;height:44px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--ink);font-size:13px}
 }
+
+/* galerie: sekce Fasády (3 vedle sebe) */
+.gp.fas .gp-r{gap:30px}
+.gp.fas .gx-c h3{font-size:1.05rem}
+@media(max-width:760px){.gp.fas .gp-r{gap:34px}}
+
+/* cookies */
+#ck{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);z-index:9999;width:min(980px,calc(100% - 32px));background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:22px;box-shadow:0 18px 50px rgba(22,33,58,.22),0 2px 6px rgba(22,33,58,.06);padding:20px 22px;display:grid;grid-template-columns:auto 1fr auto;gap:18px 20px;align-items:center;font-family:var(--f);animation:ckin .45s cubic-bezier(.2,.8,.2,1) both}
+@keyframes ckin{from{opacity:0;transform:translate(-50%,16px)}to{opacity:1;transform:translate(-50%,0)}}
+#ck .ck-i,#ckm .ck-i{width:52px;height:52px;border-radius:50%;background:var(--or-l);color:var(--or-d);display:grid;place-items:center}
+#ck h2{font-family:var(--fd);font-size:1.12rem;line-height:1.25;margin:0 0 4px;font-weight:600;color:var(--ink)}
+#ck p{margin:0;font-size:.88rem;line-height:1.55;color:var(--mut)}
+#ck p a{color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--or)}
+.ck-b{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+#ck button,#ckm .ck-d>.ck-b2 button{font:inherit;font-size:.9rem;font-weight:700;border-radius:999px;padding:11px 22px;cursor:pointer;border:2px solid var(--ink);background:transparent;color:var(--ink);transition:background .2s,color .2s,border-color .2s,transform .2s;white-space:nowrap}
+#ck button:hover,#ckm .ck-b2 button:hover{background:var(--ink);color:#fff;transform:translateY(-1px)}
+#ck button.ck-a,#ckm button.ck-a{background:var(--or);border-color:var(--or);color:#1d2a3c}
+#ck button.ck-a:hover,#ckm button.ck-a:hover{background:var(--or-d);border-color:var(--or-d);color:#fff}
+#ck button.ck-s{border-color:transparent;padding-inline:12px;text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--line)}
+#ck button.ck-s:hover{background:transparent;color:var(--or-d);transform:none;text-decoration-color:var(--or)}
+html.ck-lock{overflow:hidden}
+#ckm{position:fixed;inset:0;z-index:10000;display:grid;place-items:center;padding:16px;font-family:var(--f)}
+#ckm .ck-o{position:absolute;inset:0;background:rgba(22,33,58,.55);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);animation:ckfade .25s both}
+@keyframes ckfade{from{opacity:0}to{opacity:1}}
+#ckm .ck-d{position:relative;width:min(560px,100%);max-height:calc(100vh - 32px);overflow-x:hidden;overflow-y:auto;box-sizing:border-box;background:#fff;border-radius:24px;padding:30px 28px 26px;box-shadow:0 24px 70px rgba(22,33,58,.35);animation:ckpop .35s cubic-bezier(.2,.8,.2,1) both}
+@keyframes ckpop{from{opacity:0;transform:translateY(14px) scale(.98)}to{opacity:1;transform:none}}
+#ckm h2{font-family:var(--fd);font-size:1.45rem;margin:0 0 4px;color:var(--ink);font-weight:600}
+#ckm .ck-sub{margin:0 0 18px;color:var(--mut);font-size:.92rem}
+#ckm .ck-c{position:absolute;top:14px;right:14px;width:38px;height:38px;border-radius:50%;border:0;background:var(--cream);color:var(--ink);font-size:1.4rem;line-height:1;cursor:pointer}
+#ckm .ck-c:hover{background:var(--or-l)}
+.ck-r{position:relative;display:flex;gap:18px;align-items:center;justify-content:space-between;padding:16px 0;border-top:1px solid var(--line);cursor:pointer}
+.ck-rt{display:flex;flex-direction:column;gap:3px}
+.ck-rt b{font-size:.98rem;color:var(--ink)}
+.ck-rt small{font-size:.83rem;line-height:1.5;color:var(--mut)}
+.ck-f{font-size:.78rem;font-weight:700;color:var(--or-d);white-space:nowrap;background:var(--or-l);padding:5px 12px;border-radius:999px}
+.ck-r input{position:absolute;opacity:0;pointer-events:none}
+.ck-sw{flex:none;width:48px;height:28px;border-radius:999px;background:#cbd3e0;position:relative;transition:background .25s}
+.ck-sw:after{content:"";position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.25);transition:transform .25s}
+.ck-r input:checked+.ck-sw{background:var(--ink)}
+.ck-r input:checked+.ck-sw:after{transform:translateX(20px)}
+.ck-r input:focus-visible+.ck-sw{outline:3px solid var(--or);outline-offset:3px}
+#ckm .ck-b2{display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap;margin-top:8px;padding-top:20px;border-top:1px solid var(--line)}
+.ck-ph{display:flex;flex-direction:column;gap:16px;align-items:center;justify-content:center;text-align:center;min-height:320px;padding:28px;background:var(--cream);border:1px dashed #c9d3e3;border-radius:20px;color:var(--mut)}
+.ck-ph p{margin:0;max-width:34ch}
+.ck-re{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;text-decoration:underline;text-underline-offset:3px;opacity:.9}
+.ck-re:hover{color:var(--or)}
+@media(max-width:760px){#ck{grid-template-columns:1fr;bottom:12px;width:calc(100% - 20px);padding:18px 18px 16px;gap:14px}#ck .ck-i{display:none}.ck-b{justify-content:stretch;display:grid;grid-template-columns:1fr 1fr}#ck button.ck-s{grid-column:1/-1;order:3;padding:6px}#ck button{padding:12px 10px}#ckm .ck-d{padding:26px 20px 20px}#ckm .ck-b2{display:grid;grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){#ck,#ckm *{animation:none!important}}
+/* kontakt: IČO + název firmy na dvou řádcích */
+li > div > b + span + span{display:block}
+.mapbox .ck-ph{height:100%;min-height:0;border:0;border-radius:0;box-sizing:border-box}
+
+/* kontakt: ikony sítí zarovnané na spodek sloupce s otevírací dobou */
+#kontakt{scroll-margin-top:-92px}
+.gp-nav a{font-size:.86rem;padding:10px 12px}
+@media(min-width:1101px){.gp-nav{gap:8px}}
