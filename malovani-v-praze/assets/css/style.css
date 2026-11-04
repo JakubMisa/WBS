@@ -1000,3 +1000,11 @@ body[data-page=sluzby] .chipfan,body[data-page=vzornik] .chipfan{top:24px}
 .dws a[aria-current]{background:linear-gradient(var(--c) 0 60%,#fff 60%);color:var(--ink);border-color:var(--ink);transform:translateY(-10px);box-shadow:0 18px 22px -12px rgba(22,33,58,.6)}
 .dws a[aria-current]:after{content:"";position:absolute;left:50%;bottom:-10px;width:6px;height:6px;margin-left:-3px;border-radius:50%;background:var(--or)}
 @media(max-width:560px){.dws a{width:40px;height:60px}.dws ul{gap:8px}}
+
+/* přepínač jazyka viditelný i na mobilu */
+@media(max-width:700px){
+ .hb{display:flex;margin-left:auto;gap:0}
+ .hb .btn{display:none}
+ .burger{margin-left:10px}
+ .hb .lng{opacity:1;padding:0 14px;height:44px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--ink);font-size:13px}
+}
