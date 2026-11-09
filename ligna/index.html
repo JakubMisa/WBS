@@ -626,6 +626,15 @@ footer .logo small{color:#cfc9bd}
 .soc a:hover{background:var(--gold-btn);color:#fff;transform:translateY(-3px)}
 .soc svg{width:21px;height:21px;fill:currentColor}
 .soc svg.o{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
+/* ===== průhledný topper nad hero ===== */
+header{transition:background-color .35s ease,box-shadow .35s ease}
+header::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:0;background:linear-gradient(180deg,rgba(243,240,235,.9) 0,rgba(243,240,235,.55) 60%,rgba(243,240,235,0) 100%);transition:opacity .35s ease}
+body.on-home header{margin-bottom:calc(var(--hh,100px)*-1)}
+body.on-home .home-hero .wrap{padding-top:calc(90px + var(--hh,100px))}
+body.on-home.hdr-clear header{background-color:transparent;box-shadow:none}
+body.on-home.hdr-clear header::before{opacity:1}
+@media(max-width:900px){body.on-home .home-hero .wrap{padding-top:calc(56px + var(--hh,70px))}}
 </style>
 <script defer src="/_vercel/insights/script.js"></script>
 </head>
@@ -673,9 +682,11 @@ footer .logo small{color:#cfc9bd}
 
 <section class="hero home-hero">
   <div class="hero-bg" id="heroBg" aria-hidden="true">
-    <img class="on" src="https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=2000&q=80" alt="" onerror="this.remove()">
-    <img src="https://images.unsplash.com/photo-1646592491352-b1c02c48e72a?auto=format&fit=crop&w=2000&q=80" alt="" loading="lazy" onerror="this.remove()">
-    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2000&q=80" alt="" loading="lazy" onerror="this.remove()">
+    <img class="on" src="https://images.unsplash.com/photo-1772475385350-d130ebe22bf5?auto=format&fit=crop&w=2000&q=80" alt="" onerror="this.remove()">
+    <img src="https://images.unsplash.com/photo-1785395407788-71b829c98bb4?auto=format&fit=crop&w=2000&q=80" alt="" loading="lazy" onerror="this.remove()">
+    <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=2000&q=80" alt="" loading="lazy" onerror="this.remove()">
+    <img src="https://images.unsplash.com/photo-1759239572496-4ec13e7643d6?auto=format&fit=crop&w=2000&q=80" alt="" loading="lazy" onerror="this.remove()">
+    <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=2000&q=80" alt="" loading="lazy" onerror="this.remove()">
   </div>
   <div class="wrap">
     <div class="hero-copy">
@@ -689,7 +700,7 @@ footer .logo small{color:#cfc9bd}
         <div><span class="stars">★★★★★</span><b>4,6</b> Google · 84 recenzí</div>
         <div><span class="stars s47">★★★★★</span><b>4,7</b> Firmy.cz · 61 recenzí</div>
       </div>
-      <div class="hero-dots" id="heroDots"><i class="on"></i><i></i><i></i></div>
+      <div class="hero-dots" id="heroDots"><i class="on"></i><i></i><i></i><i></i><i></i></div>
     </div>
   </div>
 </section>
@@ -1080,10 +1091,12 @@ function show(key){
   if(key==='home'){home.classList.add('show');sub.classList.remove('show');sub.innerHTML='';}
   else{home.classList.remove('show');sub.innerHTML=key==='onas'?renderAbout():renderSub(key);sub.classList.add('show');}
   document.title=(key==='home'?'LIGNA – Kuchyně a nábytek na míru':(key==='onas'?'O nás':PAGES[key].nav)+' | LIGNA');
+  document.body.classList.toggle('on-home',key==='home');
   setNav(key);
   observe(document);
   initCounters();
   scrollTo({top:0,behavior:'instant'});
+  if(window.updHdr)updHdr();
 }
 function route(){
   const h=location.hash;
@@ -1267,6 +1280,22 @@ document.getElementById('yr').textContent=new Date().getFullYear();
   }
   dots.forEach((d,j)=>{d.style.cursor='pointer';d.onclick=()=>go(j)});
   if(!matchMedia('(prefers-reduced-motion:reduce)').matches)setInterval(()=>{if(!document.hidden)go(k+1)},5500);
+})();
+
+(function(){
+  const hd=document.querySelector('header'),nv=document.getElementById('nav');
+  function upd(){
+    document.documentElement.style.setProperty('--hh',hd.offsetHeight+'px');
+    const hero=document.querySelector('.home-hero');
+    const home=document.body.classList.contains('on-home');
+    const clear=home&&hero&&scrollY<hero.offsetHeight*.5&&!nv.classList.contains('open');
+    document.body.classList.toggle('hdr-clear',!!clear);
+  }
+  window.updHdr=upd;
+  addEventListener('scroll',upd,{passive:true});addEventListener('resize',upd);
+  document.getElementById('burger').addEventListener('click',()=>setTimeout(upd,0));
+  nv.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setTimeout(upd,0)));
+  upd();
 })();
 </script>
 </body>
